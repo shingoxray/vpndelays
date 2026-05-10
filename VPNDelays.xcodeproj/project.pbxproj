@@ -1,0 +1,871 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F0258BC4B480369416D4B79 /* 4F0258BC4B480369416D4B79 */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"CC532E1D9A8214ABF78EEED9"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		11B53EA8001DAFC851F2C6F0 /* 11B53EA8001DAFC851F2C6F0 */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"B7E0DAF09D45C01332B996AC"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		C104CA307C0C82673312431E /* C104CA307C0C82673312431E */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"DD1938DF2338CF042B32A0E7"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		F5C829ECB99E4453EA66B9D9 /* F5C829ECB99E4453EA66B9D9 */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"3C36735DF79A13731F0E0657"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		21C176000052AFF8AD9C292B /* 21C176000052AFF8AD9C292B */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"2DD5E86D4F003685E6B17F32"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		D521D7B6BE1F7DB9887860E1 /* D521D7B6BE1F7DB9887860E1 */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"A61BBAA175943AB2802F78BC"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		E93B17A79ED9C3D61CBBBFD9 /* E93B17A79ED9C3D61CBBBFD9 */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"555599541188DD3FA61808BD"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		9BC4AABE6FB47A705D99B01E /* 9BC4AABE6FB47A705D99B01E */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"FC22F41643C255DC662C9A65"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		8D49EB33B6A36528705CF3CF /* 8D49EB33B6A36528705CF3CF */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"16F678F89BD7DE6D4AC3A19C"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		97C8BA542B4B8B339B579D03 /* 97C8BA542B4B8B339B579D03 */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"A35B1DF42875383F9293C9FD"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		16C43DFCB9610F69AE0BF1DF /* 16C43DFCB9610F69AE0BF1DF */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"0018F8A813085775B836FE53"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		417371D7C067DB5FE6CB020B /* 417371D7C067DB5FE6CB020B */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"FB73E0BA11B2FB26BFD4495B"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		1ED9AE877F6B92AE3A311987 /* 1ED9AE877F6B92AE3A311987 */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"5FE0F01778A82A0CDF274BF0"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildFile section */
+		8DDFC7FC266BA7EEE08964E8 /* 8DDFC7FC266BA7EEE08964E8 */ = {
+			isa = 			"PBXBuildFile"
+;
+			fileRef = 			"2380923A7B779151AAEE3888"
+;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CC532E1D9A8214ABF78EEED9 /* VPNDelaysApp.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"VPNDelaysApp.swift"
+;
+			path = 			"VPNDelaysApp.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		B7E0DAF09D45C01332B996AC /* AppDelegate.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"AppDelegate.swift"
+;
+			path = 			"AppDelegate.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		DD1938DF2338CF042B32A0E7 /* VPNEndpoint.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"VPNEndpoint.swift"
+;
+			path = 			"Models/VPNEndpoint.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		3C36735DF79A13731F0E0657 /* TunnelStatus.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"TunnelStatus.swift"
+;
+			path = 			"Models/TunnelStatus.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		2DD5E86D4F003685E6B17F32 /* TunnelNamePreset.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"TunnelNamePreset.swift"
+;
+			path = 			"Models/TunnelNamePreset.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		A61BBAA175943AB2802F78BC /* PingParser.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"PingParser.swift"
+;
+			path = 			"Utils/PingParser.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		555599541188DD3FA61808BD /* DataStore.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"DataStore.swift"
+;
+			path = 			"ViewModels/DataStore.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		FC22F41643C255DC662C9A65 /* PingManager.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"PingManager.swift"
+;
+			path = 			"ViewModels/PingManager.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		16F678F89BD7DE6D4AC3A19C /* PopoverContentView.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"PopoverContentView.swift"
+;
+			path = 			"Views/PopoverContentView.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		A35B1DF42875383F9293C9FD /* EndpointRowView.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"EndpointRowView.swift"
+;
+			path = 			"Views/EndpointRowView.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		0018F8A813085775B836FE53 /* TunnelRowView.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"TunnelRowView.swift"
+;
+			path = 			"Views/TunnelRowView.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		FB73E0BA11B2FB26BFD4495B /* AddEndpointView.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"AddEndpointView.swift"
+;
+			path = 			"Views/AddEndpointView.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		5FE0F01778A82A0CDF274BF0 /* SettingsView.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"SettingsView.swift"
+;
+			path = 			"Views/SettingsView.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		2380923A7B779151AAEE3888 /* MenuIconView.swift */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"sourcecode.swift"
+;
+			name = 			"MenuIconView.swift"
+;
+			path = 			"Views/MenuIconView.swift"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		031D39859F3D0E97AC5E101B /* Assets.xcassets */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"folder.assetcatalog"
+;
+			name = 			"Assets.xcassets"
+;
+			path = 			"Resources/Assets.xcassets"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		CBC1A6187DDFEBB71FC440A0 /* Info.plist */ = {
+			isa = 			"PBXFileReference"
+;
+			lastKnownFileType = 			"text.plist.xml"
+;
+			name = 			"Info.plist"
+;
+			path = 			"Info.plist"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileReference section */
+		A97C29AD63741CF438998CE6 /* VPNDelays.app */ = {
+			isa = 			"PBXFileReference"
+;
+			explicitFileType = 			"wrapper.application"
+;
+			includeInIndex = 			0
+;
+			path = 			"VPNDelays.app"
+;
+			sourceTree = 			"BUILT_PRODUCTS_DIR"
+;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		29B2D46AA747A59804D46E1F /* 29B2D46AA747A59804D46E1F */ = {
+			isa = 			"PBXFrameworksBuildPhase"
+;
+			buildActionMask = 			2147483647
+;
+			files = 			(
+			)
+;
+			runOnlyForDeploymentPostprocessing = 			0
+;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9CF43B31E8845D861542A38E /* Models */ = {
+			isa = 			"PBXGroup"
+;
+			children = 			(
+				"DD1938DF2338CF042B32A0E7"
+,
+				"3C36735DF79A13731F0E0657"
+,
+				"2DD5E86D4F003685E6B17F32"
+,
+			)
+;
+			name = 			"Models"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXGroup section */
+		10E0CBB3D5907D4020F06435 /* Utils */ = {
+			isa = 			"PBXGroup"
+;
+			children = 			(
+				"A61BBAA175943AB2802F78BC"
+,
+			)
+;
+			name = 			"Utils"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXGroup section */
+		420CEB417186B52ECF642348 /* ViewModels */ = {
+			isa = 			"PBXGroup"
+;
+			children = 			(
+				"555599541188DD3FA61808BD"
+,
+				"FC22F41643C255DC662C9A65"
+,
+			)
+;
+			name = 			"ViewModels"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXGroup section */
+		C454586A1F4E28C340BDC1AD /* Views */ = {
+			isa = 			"PBXGroup"
+;
+			children = 			(
+				"16F678F89BD7DE6D4AC3A19C"
+,
+				"A35B1DF42875383F9293C9FD"
+,
+				"0018F8A813085775B836FE53"
+,
+				"FB73E0BA11B2FB26BFD4495B"
+,
+				"5FE0F01778A82A0CDF274BF0"
+,
+				"2380923A7B779151AAEE3888"
+,
+			)
+;
+			name = 			"Views"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXGroup section */
+		45B877375D6D6297BAAF2860 /* Resources */ = {
+			isa = 			"PBXGroup"
+;
+			children = 			(
+				"031D39859F3D0E97AC5E101B"
+,
+			)
+;
+			name = 			"Resources"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXGroup section */
+		450B220DE8EEB27904FC3DC4 /* VPNDelays */ = {
+			isa = 			"PBXGroup"
+;
+			children = 			(
+				"CC532E1D9A8214ABF78EEED9"
+,
+				"B7E0DAF09D45C01332B996AC"
+,
+				"CBC1A6187DDFEBB71FC440A0"
+,
+				"9CF43B31E8845D861542A38E"
+,
+				"10E0CBB3D5907D4020F06435"
+,
+				"420CEB417186B52ECF642348"
+,
+				"C454586A1F4E28C340BDC1AD"
+,
+				"45B877375D6D6297BAAF2860"
+,
+			)
+;
+			path = 			"VPNDelays"
+;
+			sourceTree = 			"<group>"
+;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E757D91215D317FF5AF7029D /* VPNDelays */ = {
+			isa = 			"PBXNativeTarget"
+;
+			buildConfigurationList = 			"8275601EC0673110326614E6"
+;
+			buildPhases = 			(
+				"E7209FB05162B7572F88D05E"
+,
+				"29B2D46AA747A59804D46E1F"
+,
+				"66F8606E9F0A136E2228EBCB"
+,
+			)
+;
+			buildRules = 			(
+			)
+;
+			dependencies = 			(
+			)
+;
+			name = 			"VPNDelays"
+;
+			productName = 			"VPNDelays"
+;
+			productReference = 			"A97C29AD63741CF438998CE6"
+;
+			productType = 			"com.apple.product-type.application"
+;
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46F86FAA6BBF9AC94A7E4595 /* 46F86FAA6BBF9AC94A7E4595 */ = {
+			isa = 			"PBXProject"
+;
+			attributes = 			{
+				LastSwiftUpdateCheck = 				"1500"
+;
+				LastUpgradeCheck = 				"1500"
+;
+				TargetAttributes = 				{
+					E757D91215D317FF5AF7029D = 					{
+						CreatedOnToolsVersion = 						"15.0"
+;
+					}
+;
+				}
+;
+			}
+;
+			buildConfigurationList = 			"547095AE1FCB6888116CDBC4"
+;
+			compatibilityVersion = 			"Xcode 13.0"
+;
+			developmentRegion = 			"en"
+;
+			hasScannedForEncodings = 			0
+;
+			knownRegions = 			(
+				"en"
+,
+				"Base"
+,
+				"zh-Hans"
+,
+			)
+;
+			mainGroup = 			"450B220DE8EEB27904FC3DC4"
+;
+			productRefGroup = 			"450B220DE8EEB27904FC3DC4"
+;
+			projectDirPath = 			""
+;
+			projectRoot = 			""
+;
+			targets = 			(
+				"E757D91215D317FF5AF7029D"
+,
+			)
+;
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66F8606E9F0A136E2228EBCB /* 66F8606E9F0A136E2228EBCB */ = {
+			isa = 			"PBXResourcesBuildPhase"
+;
+			buildActionMask = 			2147483647
+;
+			files = 			(
+			)
+;
+			runOnlyForDeploymentPostprocessing = 			0
+;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E7209FB05162B7572F88D05E /* E7209FB05162B7572F88D05E */ = {
+			isa = 			"PBXSourcesBuildPhase"
+;
+			buildActionMask = 			2147483647
+;
+			files = 			(
+				"4F0258BC4B480369416D4B79"
+,
+				"11B53EA8001DAFC851F2C6F0"
+,
+				"C104CA307C0C82673312431E"
+,
+				"F5C829ECB99E4453EA66B9D9"
+,
+				"21C176000052AFF8AD9C292B"
+,
+				"D521D7B6BE1F7DB9887860E1"
+,
+				"E93B17A79ED9C3D61CBBBFD9"
+,
+				"9BC4AABE6FB47A705D99B01E"
+,
+				"8D49EB33B6A36528705CF3CF"
+,
+				"97C8BA542B4B8B339B579D03"
+,
+				"16C43DFCB9610F69AE0BF1DF"
+,
+				"417371D7C067DB5FE6CB020B"
+,
+				"1ED9AE877F6B92AE3A311987"
+,
+				"8DDFC7FC266BA7EEE08964E8"
+,
+			)
+;
+			runOnlyForDeploymentPostprocessing = 			0
+;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7C5BBD3BC87E96980C254F65 /* Debug */ = {
+			isa = 			"XCBuildConfiguration"
+;
+			buildSettings = 			{
+				ASSETCATALOG_COMPILER_APPICON_NAME = 				"AppIcon"
+;
+				COMBINE_HIDPI_IMAGES = 				"YES"
+;
+				CURRENT_PROJECT_VERSION = 				"1"
+;
+				GENERATE_INFOPLIST_FILE = 				"NO"
+;
+				ENABLE_PREVIEWS = 				"NO"
+;
+				INFOPLIST_FILE = 				"VPNDelays/Info.plist"
+;
+				INFOPLIST_KEY_CFBundleDisplayName = 				"VPNDelays"
+;
+				INFOPLIST_KEY_CFBundleIdentifier = 				"com.vpndelays.app"
+;
+				INFOPLIST_KEY_LSMinimumSystemVersion = 				"12.0"
+;
+				MACOSX_DEPLOYMENT_TARGET = 				"12.0"
+;
+				PRODUCT_BUNDLE_IDENTIFIER = 				"com.vpndelays.app"
+;
+				PRODUCT_NAME = 				"$(TARGET_NAME)"
+;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = 				"DEBUG"
+;
+				SWIFT_VERSION = 				"5.0"
+;
+			}
+;
+			name = 			"Debug"
+;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCBuildConfiguration section */
+		171253D7481529DC7E4428E9 /* Release */ = {
+			isa = 			"XCBuildConfiguration"
+;
+			buildSettings = 			{
+				ASSETCATALOG_COMPILER_APPICON_NAME = 				"AppIcon"
+;
+				COMBINE_HIDPI_IMAGES = 				"YES"
+;
+				CURRENT_PROJECT_VERSION = 				"1"
+;
+				ENABLE_PREVIEWS = 				"NO"
+;
+				GENERATE_INFOPLIST_FILE = 				"NO"
+;
+				INFOPLIST_FILE = 				"VPNDelays/Info.plist"
+;
+				INFOPLIST_KEY_CFBundleDisplayName = 				"VPNDelays"
+;
+				INFOPLIST_KEY_CFBundleIdentifier = 				"com.vpndelays.app"
+;
+				INFOPLIST_KEY_LSMinimumSystemVersion = 				"12.0"
+;
+				MACOSX_DEPLOYMENT_TARGET = 				"12.0"
+;
+				PRODUCT_BUNDLE_IDENTIFIER = 				"com.vpndelays.app"
+;
+				PRODUCT_NAME = 				"$(TARGET_NAME)"
+;
+				SWIFT_VERSION = 				"5.0"
+;
+			}
+;
+			name = 			"Release"
+;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCBuildConfiguration section */
+		32246F39F4A00D3496149190 /* Debug */ = {
+			isa = 			"XCBuildConfiguration"
+;
+			buildSettings = 			{
+				ALWAYS_SEARCH_USER_PATHS = 				"NO"
+;
+				CLANG_ANALYZER_NONNULL = 				"YES"
+;
+				CLANG_CXX_LANGUAGE_STANDARD = 				"gnu++20"
+;
+				CLANG_ENABLE_MODULES = 				"YES"
+;
+				CLANG_ENABLE_OBJC_ARC = 				"YES"
+;
+				COPY_PHASE_STRIP = 				"NO"
+;
+				DEBUG_INFORMATION_FORMAT = 				"dwarf-with-dsym"
+;
+				ENABLE_STRICT_OBJC_MSGSEND = 				"YES"
+;
+				GCC_DYNAMIC_NO_PIC = 				"NO"
+;
+				GCC_OPTIMIZATION_LEVEL = 				"0"
+;
+				GCC_PREPROCESSOR_DEFINITIONS = 				"DEBUG=1"
+;
+				MACOSX_DEPLOYMENT_TARGET = 				"12.0"
+;
+				ONLY_ACTIVE_ARCH = 				"YES"
+;
+				SDKROOT = 				"macosx"
+;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = 				"DEBUG"
+;
+				SWIFT_OPTIMIZATION_LEVEL = 				"-Onone"
+;
+			}
+;
+			name = 			"Debug"
+;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCBuildConfiguration section */
+		B07094C226BDAFE911FF20DA /* Release */ = {
+			isa = 			"XCBuildConfiguration"
+;
+			buildSettings = 			{
+				ALWAYS_SEARCH_USER_PATHS = 				"NO"
+;
+				CLANG_ANALYZER_NONNULL = 				"YES"
+;
+				CLANG_CXX_LANGUAGE_STANDARD = 				"gnu++20"
+;
+				CLANG_ENABLE_MODULES = 				"YES"
+;
+				CLANG_ENABLE_OBJC_ARC = 				"YES"
+;
+				COPY_PHASE_STRIP = 				"NO"
+;
+				DEBUG_INFORMATION_FORMAT = 				"dwarf-with-dsym"
+;
+				ENABLE_NS_ASSERTIONS = 				"NO"
+;
+				ENABLE_STRICT_OBJC_MSGSEND = 				"YES"
+;
+				GCC_OPTIMIZATION_LEVEL = 				"s"
+;
+				MACOSX_DEPLOYMENT_TARGET = 				"12.0"
+;
+				SDKROOT = 				"macosx"
+;
+				SWIFT_COMPILATION_MODE = 				"wholemodule"
+;
+				SWIFT_OPTIMIZATION_LEVEL = 				"-O"
+;
+				VALIDATE_PRODUCT = 				"YES"
+;
+			}
+;
+			name = 			"Release"
+;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8275601EC0673110326614E6 /* 8275601EC0673110326614E6 */ = {
+			isa = 			"XCConfigurationList"
+;
+			buildConfigurations = 			(
+				"7C5BBD3BC87E96980C254F65"
+,
+				"171253D7481529DC7E4428E9"
+,
+			)
+;
+			defaultConfigurationIsVisible = 			0
+;
+			defaultConfigurationName = 			"Debug"
+;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCConfigurationList section */
+		547095AE1FCB6888116CDBC4 /* 547095AE1FCB6888116CDBC4 */ = {
+			isa = 			"XCConfigurationList"
+;
+			buildConfigurations = 			(
+				"32246F39F4A00D3496149190"
+,
+				"B07094C226BDAFE911FF20DA"
+,
+			)
+;
+			defaultConfigurationIsVisible = 			0
+;
+			defaultConfigurationName = 			"Debug"
+;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46F86FAA6BBF9AC94A7E4595;
+}

@@ -98,29 +98,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - 设置窗口
 
     @objc func openSettings() {
-        if let existing = settingsWindowController {
-            existing.window?.makeKeyAndOrderFront(nil)
+        // 异步执行，让当前 runloop 先完成 popover 事件处理
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let existing = self.settingsWindowController {
+                existing.window?.makeKeyAndOrderFront(nil)
+                NSApp.activate(ignoringOtherApps: true)
+                return
+            }
+
+            let settingsView = SettingsView()
+                .environmentObject(self.dataStore)
+                .frame(width: 420, height: 320)
+
+            let hostingController = NSHostingController(rootView: settingsView)
+            let window = NSWindow(contentViewController: hostingController)
+            window.title = "VPNDelays 设置"
+            window.setContentSize(NSSize(width: 420, height: 320))
+            window.styleMask = [.titled, .closable, .miniaturizable]
+            window.center()
+
+            let controller = NSWindowController(window: window)
+            controller.window?.delegate = self
+            self.settingsWindowController = controller
+
+            window.makeKeyAndOrderFront(nil)
             NSApp.activate(ignoringOtherApps: true)
-            return
         }
-
-        let settingsView = SettingsView()
-            .environmentObject(dataStore)
-            .frame(width: 420, height: 320)
-
-        let hostingController = NSHostingController(rootView: settingsView)
-        let window = NSWindow(contentViewController: hostingController)
-        window.title = "VPNDelays 设置"
-        window.setContentSize(NSSize(width: 420, height: 320))
-        window.styleMask = [.titled, .closable, .miniaturizable]
-        window.center()
-
-        let controller = NSWindowController(window: window)
-        controller.window?.delegate = self
-        settingsWindowController = controller
-
-        window.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
     }
 
     // MARK: - 观察

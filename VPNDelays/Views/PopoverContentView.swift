@@ -35,7 +35,9 @@ struct PopoverContentView: View {
             Text(pingManager.isPinging ? "检测中..." : "\(Int(dataStore.pingInterval))s")
                 .font(.caption)
                 .foregroundColor(.secondary)
-            Button(action: openSettingsWin) {
+            Button(action: {
+                AppDelegate.shared.openSettings()
+            }) {
                 Image(systemName: "gearshape")
                     .font(.system(size: 12))
             }
@@ -109,8 +111,4 @@ struct PopoverContentView: View {
     }
 }
 
-// MARK: - Actions
 
-private func openSettingsWin() {
-    AppDelegate.shared.openSettings()
-}

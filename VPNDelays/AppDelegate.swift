@@ -6,6 +6,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var statusItem: NSStatusItem!
     private var popover: NSPopover!
+    private var settingsWindowController: NSWindowController?
 
     private let dataStore = DataStore.shared
     private let pingManager = PingManager.shared
@@ -98,10 +99,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - 设置窗口
 
     @objc func openSettings() {
-        // 利用 SwiftUI Settings Scene 打开设置窗口
-        // 通过 responder chain 触发，避免手动创建 NSWindow
-        DispatchQueue.main.async {
-            NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let existing = self.settingsWindowController {
+                existing.window?.makeKeyAndOrderFront(nil)
+                NSApp.activate(ignoringOtherApps: true)
+                return
+            }
+
+            let settingsView = SettingsView()
+                .environmentObject(self.dataStore)
+                .frame(width: 420, height: 320)
+
+            let hostingController = NSHostingController(rootView: settingsView)
+            let window = NSWindow(contentViewController: hostingController)
+            window.title = "VPNDelays 设置"
+            window.setContentSize(NSSize(width: 420, height: 320))
+            window.styleMask = [.titled, .closable, .miniaturizable]
+            window.center()
+
+            let controller = NSWindowController(window: window)
+            controller.window?.delegate = self
+            self.settingsWindowController = controller
+
+            window.makeKeyAndOrderFront(nil)
             NSApp.activate(ignoringOtherApps: true)
         }
     }
@@ -112,6 +133,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
             self?.updateMenuBarIcon()
         }
+    }
+}
+
+// MARK: - NSWindowDelegate
+
+extension AppDelegate: NSWindowDelegate {
+    func windowWillClose(_ notification: Notification) {
+        settingsWindowController = nil
     }
 }
 

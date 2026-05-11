@@ -27,7 +27,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func setupStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem?.button?.image = makeMenuBarIcon(status: .unknown)
-        statusItem?.button?.action = #selector(togglePopover)
+        statusItem?.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
+        statusItem?.button?.action = #selector(handleStatusItemClick)
         statusItem?.button?.target = self
     }
 
@@ -86,7 +87,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
     }
 
-    @objc private func togglePopover() {
+    @objc private func handleStatusItemClick() {
+        guard let event = NSApp.currentEvent else {
+            togglePopoverInternal()
+            return
+        }
+        if event.type == .rightMouseUp {
+            let menu = NSMenu()
+            menu.addItem(NSMenuItem(
+                title: "退出 VPNDelays",
+                action: #selector(NSApplication.terminate(_:)),
+                keyEquivalent: "q"))
+            NSMenu.popUpContextMenu(menu, with: event, for: statusItem!.button!)
+            return
+        }
+        togglePopoverInternal()
+    }
+
+    @objc private func togglePopoverInternal() {
         if popover.isShown {
             popover.performClose(nil)
         } else {

@@ -16,7 +16,7 @@ struct AddEndpointView: View {
         _name = State(initialValue: endpoint?.name ?? "")
         _tunnels = State(initialValue: endpoint?.tunnels ?? [])
         _greenMaxLatency = State(initialValue: endpoint?.greenMaxLatency ?? 50)
-        _redMinLatency = State(initialValue: endpoint?.redMinLatency ?? 200)
+        _redMinLatency = State(initialValue: endpoint?.redMinLatency ?? 150)
     }
 
     var body: some View {

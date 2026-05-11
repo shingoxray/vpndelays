@@ -10,7 +10,7 @@ struct TunnelRowView: View {
 
     init(tunnel: Tunnel, status: TunnelStatus?,
          greenMaxLatency: Double = 50,
-         redMinLatency: Double = 200) {
+         redMinLatency: Double = 150) {
         self.tunnel = tunnel
         self.status = status
         self.greenMaxLatency = greenMaxLatency

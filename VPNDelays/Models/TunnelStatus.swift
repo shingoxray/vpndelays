@@ -19,7 +19,7 @@ struct TunnelStatus: Identifiable, Equatable {
     var lastChecked: Date?
 
     /// 使用端点自定义阈值计算等级
-    func level(greenMax: Double = 50, redMin: Double = 200) -> StatusLevel {
+    func level(greenMax: Double = 50, redMin: Double = 150) -> StatusLevel {
         if !isOnline { return .red }
         if let lat = latency, lat < greenMax, packetLoss == 0 { return .green }
         if let lat = latency, lat < redMin { return .orange }

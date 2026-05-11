@@ -17,6 +17,11 @@ struct EndpointRowView: View {
                         .font(.system(size: 9, weight: .medium))
                         .foregroundColor(.secondary)
                         .frame(width: 10)
+
+                    Circle()
+                        .fill(endpointColor)
+                        .frame(width: 6, height: 6)
+
                     Text(endpoint.name)
                         .font(.system(size: 12, weight: .medium))
                     Spacer()
@@ -66,5 +71,18 @@ struct EndpointRowView: View {
         let statuses = tunnels.compactMap { pingManager.tunnelStatuses[$0.id] }
         let online = statuses.filter(\.isOnline).count
         return "\(online)/\(tunnels.count) 在线"
+    }
+
+    /// 端点颜色：有绿色隧道→绿→有橙色隧道→橙→否则红→无状态→灰
+    private var endpointColor: Color {
+        let tunnels = endpoint.tunnels
+        let statuses = tunnels.compactMap { pingManager.tunnelStatuses[$0.id] }
+        guard !statuses.isEmpty else { return .gray }
+
+        let hasGreen  = statuses.contains { $0.level == .green }
+        let hasOrange = statuses.contains { $0.level == .orange }
+        if hasGreen  { return .green }
+        if hasOrange { return .orange }
+        return .red
     }
 }

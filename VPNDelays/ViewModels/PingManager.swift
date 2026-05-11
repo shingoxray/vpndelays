@@ -6,8 +6,10 @@ class PingManager: ObservableObject {
 
     @Published var tunnelStatuses: [UUID: TunnelStatus] = [:]
     @Published var isPinging = false
+    @Published var secondsUntilNextPing: Int = 0
 
     private var timer: Timer?
+    private var countdownTimer: Timer?
     private var cancellables = Set<AnyCancellable>()
     private let pingQueue = DispatchQueue(label: "com.vpndelays.ping", qos: .utility)
 
@@ -23,15 +25,19 @@ class PingManager: ObservableObject {
     func start() {
         stop()
         let interval = max(dataStore.pingInterval, 2)
+        secondsUntilNextPing = Int(interval)
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
             self?.pingAll()
         }
+        startCountdown(interval: interval)
         pingAll()
     }
 
     func stop() {
         timer?.invalidate()
         timer = nil
+        countdownTimer?.invalidate()
+        countdownTimer = nil
     }
 
     func restart() { start() }
@@ -39,6 +45,7 @@ class PingManager: ObservableObject {
     func pingAll() {
         guard !isPinging else { return }
         isPinging = true
+        secondsUntilNextPing = Int(max(dataStore.pingInterval, 2))
 
         let endpoints = dataStore.endpoints
         guard !endpoints.isEmpty else { isPinging = false; return }
@@ -88,6 +95,19 @@ class PingManager: ObservableObject {
             return PingParser.parse(output: output, tunnelId: tunnelId)
         } catch {
             return TunnelStatus(tunnelId: tunnelId, isOnline: false, latency: nil, packetLoss: 100, lastChecked: Date())
+        }
+    }
+
+    // MARK: - 倒计时
+
+    private func startCountdown(interval: TimeInterval) {
+        countdownTimer?.invalidate()
+        secondsUntilNextPing = Int(interval)
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            if self.secondsUntilNextPing > 0 {
+                self.secondsUntilNextPing -= 1
+            }
         }
     }
 }

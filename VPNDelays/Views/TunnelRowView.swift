@@ -51,10 +51,11 @@ struct TunnelRowView: View {
 
     private var statusColor: Color {
         guard let status = status else { return .gray.opacity(0.4) }
-        if !status.isOnline { return .red }
-        if let lat = status.latency, lat < 50, status.packetLoss == 0 { return .green }
-        if let lat = status.latency, lat < 150 { return .orange }
-        return .red
+        switch status.level {
+        case .green:  return .green
+        case .orange: return .orange
+        case .red:    return .red
+        }
     }
 
     private var latencyColor: Color {

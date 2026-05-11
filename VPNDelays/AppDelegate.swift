@@ -48,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let color: NSColor
         switch status {
         case .allGreen:  color = NSColor.systemGreen
-        case .someYellow: color = NSColor.systemYellow
+        case .someOrange: color = NSColor.systemOrange
         case .someRed:    color = NSColor.systemRed
         case .unknown:    color = NSColor.systemGray
         }
@@ -64,14 +64,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return image
     }
 
+    /// 菜单栏图标颜色（与 Popover 顶部的圆点保持一致）
     private func computeOverallStatus() -> OverallStatus {
-        let statuses = pingManager.tunnelStatuses.values
-        if statuses.isEmpty { return .unknown }
-        if statuses.allSatisfy({ !$0.isOnline }) { return .someRed }
-        if statuses.contains(where: { !$0.isOnline }) { return .someYellow }
-        if statuses.allSatisfy({ $0.isOnline && ($0.latency ?? 0) < 50 && $0.packetLoss == 0 }) { return .allGreen }
-        if statuses.allSatisfy({ $0.isOnline }) { return .someYellow }
-        return .unknown
+        let color = computeOverallColor(endpoints: dataStore.endpoints,
+                                        statuses: pingManager.tunnelStatuses)
+        switch color {
+        case .green:  return .allGreen
+        case .orange: return .someOrange
+        case .red:    return .someRed
+        default:      return .unknown
+        }
     }
 
     // MARK: - Popover
@@ -166,7 +168,7 @@ extension AppDelegate: NSWindowDelegate {
 
 enum OverallStatus {
     case allGreen
-    case someYellow
+    case someOrange
     case someRed
     case unknown
 }

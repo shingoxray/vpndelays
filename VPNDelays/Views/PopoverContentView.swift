@@ -32,9 +32,16 @@ struct PopoverContentView: View {
             Text("VPNDelays")
                 .font(.system(size: 13, weight: .semibold))
             Spacer()
-            Text(pingManager.isPinging ? "检测中..." : "\(Int(dataStore.pingInterval))s")
-                .font(.caption)
-                .foregroundColor(.secondary)
+            // 倒计时
+            if pingManager.isPinging {
+                Text("检测中...")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            } else {
+                Text("\(pingManager.secondsUntilNextPing)s")
+                    .font(.caption.monospacedDigit())
+                    .foregroundColor(.secondary)
+            }
             Button(action: {
                 AppDelegate.shared?.openSettings()
             }) {
@@ -99,16 +106,35 @@ struct PopoverContentView: View {
         .padding(.vertical, 6)
     }
 
-    // MARK: - Overall Color
+    // MARK: - Overall Color （与菜单栏图标一致）
 
     private var overallColor: Color {
-        let statuses = pingManager.tunnelStatuses.values
-        if statuses.isEmpty { return .gray }
-        if statuses.allSatisfy({ !$0.isOnline }) { return .red }
-        if statuses.contains(where: { !$0.isOnline }) { return .orange }
-        if statuses.allSatisfy({ $0.isOnline && ($0.latency ?? 999) < 50 && $0.packetLoss == 0 }) { return .green }
-        return .yellow
+        computeOverallColor(endpoints: dataStore.endpoints,
+                            statuses: pingManager.tunnelStatuses)
     }
 }
 
+/// 全局统一的颜色计算
+func computeOverallColor(endpoints: [VPNEndpoint],
+                          statuses: [UUID: TunnelStatus]) -> Color {
+    guard !statuses.isEmpty else { return .gray }
 
+    var hasEndpointRed    = false
+    var hasEndpointOrange = false
+
+    for endpoint in endpoints {
+        let tunnelStatuses = endpoint.tunnels.compactMap { statuses[$0.id] }
+        guard !tunnelStatuses.isEmpty else { continue }
+
+        let endpointGreen  = tunnelStatuses.contains { $0.level == .green }
+        let endpointOrange = tunnelStatuses.contains { $0.level == .orange }
+
+        if endpointGreen  { continue }
+        if endpointOrange { hasEndpointOrange = true; continue }
+        hasEndpointRed = true
+    }
+
+    if hasEndpointRed    { return .red }
+    if hasEndpointOrange { return .orange }
+    return .green
+}

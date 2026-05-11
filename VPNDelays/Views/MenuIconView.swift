@@ -5,6 +5,6 @@ struct MenuIconView: View {
     let status: OverallStatus
 
     var body: some View {
-        Image(nsImage: AppDelegate.shared.makeMenuBarIcon(status: status))
+        Image(nsImage: AppDelegate.shared!.makeMenuBarIcon(status: status))
     }
 }

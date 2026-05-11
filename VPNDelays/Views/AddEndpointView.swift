@@ -123,7 +123,7 @@ struct TunnelEditRow: View {
                         Button(preset) { tunnel.name = preset }
                     }
                     if !presets.isEmpty { Divider() }
-                    Button("管理预设...") { AppDelegate.shared.openSettings() }
+                    Button("管理预设...") { AppDelegate.shared?.openSettings() }
                 } label: {
                     Image(systemName: "chevron.down")
                         .font(.system(size: 9))

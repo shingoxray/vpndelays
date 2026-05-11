@@ -36,7 +36,7 @@ struct PopoverContentView: View {
                 .font(.caption)
                 .foregroundColor(.secondary)
             Button(action: {
-                AppDelegate.shared.openSettings()
+                AppDelegate.shared?.openSettings()
             }) {
                 Image(systemName: "gearshape")
                     .font(.system(size: 12))

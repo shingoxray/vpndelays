@@ -2,7 +2,7 @@ import Cocoa
 import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    static var shared: AppDelegate { NSApp.delegate as! AppDelegate }
+    static weak var shared: AppDelegate?
 
     private var statusItem: NSStatusItem!
     private var popover: NSPopover!
@@ -11,6 +11,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let pingManager = PingManager.shared
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        AppDelegate.shared = self
         NSApp.setActivationPolicy(.accessory) // 隐藏 Dock
 
         setupStatusItem()

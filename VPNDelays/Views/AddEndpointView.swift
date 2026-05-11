@@ -53,9 +53,6 @@ struct AddEndpointView: View {
                             TunnelEditRow(
                                 tunnel: $tunnels[index],
                                 presets: dataStore.tunnelNamePresets,
-                                onDeletePreset: { preset in
-                                    dataStore.tunnelNamePresets.removeAll { $0 == preset }
-                                },
                                 onDelete: { tunnels.remove(at: index) }
                             )
                         }
@@ -111,7 +108,6 @@ struct AddEndpointView: View {
 struct TunnelEditRow: View {
     @Binding var tunnel: Tunnel
     let presets: [String]
-    let onDeletePreset: (String) -> Void
     let onDelete: () -> Void
 
     var body: some View {
@@ -126,17 +122,7 @@ struct TunnelEditRow: View {
                     ForEach(presets, id: \.self) { preset in
                         Button(preset) { tunnel.name = preset }
                     }
-                    if !presets.isEmpty {
-                        Divider()
-                        ForEach(presets, id: \.self) { preset in
-                            Button(role: .destructive) {
-                                onDeletePreset(preset)
-                            } label: {
-                                Label("删除 \"\(preset)\"", systemImage: "trash")
-                            }
-                        }
-                        Divider()
-                    }
+                    if !presets.isEmpty { Divider() }
                     Button("管理预设...") { AppDelegate.shared?.openSettings() }
                 } label: {
                     Image(systemName: "chevron.down")

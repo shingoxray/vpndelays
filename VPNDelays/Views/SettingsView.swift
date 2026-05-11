@@ -56,13 +56,29 @@ struct SettingsView: View {
                     .padding(.vertical, 20)
             } else {
                 List {
-                    ForEach(dataStore.tunnelNamePresets, id: \.self) { preset in
+                    ForEach(Array(dataStore.tunnelNamePresets.enumerated()), id: \.offset) { index, preset in
                         HStack {
                             Image(systemName: "tag")
                                 .foregroundColor(.secondary)
                                 .font(.caption)
                             Text(preset)
                                 .font(.system(size: 12))
+                            Spacer()
+                            Button(role: .destructive) {
+                                dataStore.tunnelNamePresets.remove(at: index)
+                            } label: {
+                                Image(systemName: "xmark.circle.fill")
+                                    .font(.system(size: 12))
+                            }
+                            .buttonStyle(.plain)
+                            .help("删除 \"\(preset)\"")
+                        }
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                dataStore.tunnelNamePresets.remove(at: index)
+                            } label: {
+                                Label("删除 \"\(preset)\"", systemImage: "trash")
+                            }
                         }
                     }
                     .onDelete { indexSet in

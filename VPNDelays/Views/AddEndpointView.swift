@@ -8,11 +8,15 @@ struct AddEndpointView: View {
 
     @State private var name: String
     @State private var tunnels: [Tunnel]
+    @State private var greenMaxLatency: Double
+    @State private var redMinLatency: Double
 
     init(endpoint: VPNEndpoint? = nil) {
         editingEndpoint = endpoint
         _name = State(initialValue: endpoint?.name ?? "")
         _tunnels = State(initialValue: endpoint?.tunnels ?? [])
+        _greenMaxLatency = State(initialValue: endpoint?.greenMaxLatency ?? 50)
+        _redMinLatency = State(initialValue: endpoint?.redMinLatency ?? 200)
     }
 
     var body: some View {
@@ -20,6 +24,7 @@ struct AddEndpointView: View {
             Text(editingEndpoint == nil ? "添加端点" : "编辑端点")
                 .font(.headline)
 
+            // 端点名称
             HStack {
                 Text("名称")
                     .frame(width: 60, alignment: .leading)
@@ -28,6 +33,37 @@ struct AddEndpointView: View {
                     .textFieldStyle(.roundedBorder)
             }
 
+            // 延迟阈值
+            GroupBox("延迟阈值") {
+                VStack(spacing: 8) {
+                    HStack {
+                        Text("绿色 <")
+                            .foregroundColor(.green)
+                            .font(.caption)
+                            .frame(width: 50, alignment: .leading)
+                        Slider(value: $greenMaxLatency, in: 10...500, step: 10)
+                        Text("\(Int(greenMaxLatency)) ms")
+                            .font(.caption.monospacedDigit())
+                            .frame(width: 50, alignment: .trailing)
+                    }
+                    HStack {
+                        Text("红色 ≥")
+                            .foregroundColor(.red)
+                            .font(.caption)
+                            .frame(width: 50, alignment: .leading)
+                        Slider(value: $redMinLatency, in: 20...1000, step: 10)
+                        Text("\(Int(redMinLatency)) ms")
+                            .font(.caption.monospacedDigit())
+                            .frame(width: 50, alignment: .trailing)
+                    }
+                    Text("橙色 = \(Int(greenMaxLatency)) ~ \(Int(redMinLatency)) ms")
+                        .font(.caption2)
+                        .foregroundColor(.orange)
+                }
+                .padding(.vertical, 4)
+            }
+
+            // 隧道列表
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     Text("隧道")
@@ -58,7 +94,7 @@ struct AddEndpointView: View {
                         }
                     }
                 }
-                .frame(maxHeight: 240)
+                .frame(maxHeight: 200)
             }
 
             Divider()
@@ -71,10 +107,11 @@ struct AddEndpointView: View {
             }
         }
         .padding()
-        .frame(width: 420, height: 400)
+        .frame(width: 440, height: 520)
     }
 
     private var isValid: Bool {
+        greenMaxLatency < redMinLatency &&
         !name.trimmingCharacters(in: .whitespaces).isEmpty &&
         !tunnels.isEmpty &&
         tunnels.allSatisfy {
@@ -95,9 +132,18 @@ struct AddEndpointView: View {
                    host: $0.host.trimmingCharacters(in: .whitespaces))
         }
         if let existing = editingEndpoint {
-            dataStore.updateEndpoint(VPNEndpoint(id: existing.id, name: cleanName, tunnels: cleanTunnels))
+            let updated = VPNEndpoint(id: existing.id,
+                                       name: cleanName,
+                                       tunnels: cleanTunnels,
+                                       greenMaxLatency: greenMaxLatency,
+                                       redMinLatency: redMinLatency)
+            dataStore.updateEndpoint(updated)
         } else {
-            dataStore.addEndpoint(VPNEndpoint(name: cleanName, tunnels: cleanTunnels))
+            let new = VPNEndpoint(name: cleanName,
+                                   tunnels: cleanTunnels,
+                                   greenMaxLatency: greenMaxLatency,
+                                   redMinLatency: redMinLatency)
+            dataStore.addEndpoint(new)
         }
         PingManager.shared.pingAll()
     }

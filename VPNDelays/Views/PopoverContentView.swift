@@ -126,8 +126,10 @@ func computeOverallColor(endpoints: [VPNEndpoint],
         let tunnelStatuses = endpoint.tunnels.compactMap { statuses[$0.id] }
         guard !tunnelStatuses.isEmpty else { continue }
 
-        let endpointGreen  = tunnelStatuses.contains { $0.level == .green }
-        let endpointOrange = tunnelStatuses.contains { $0.level == .orange }
+        let gm = endpoint.greenMaxLatency
+        let rm = endpoint.redMinLatency
+        let endpointGreen  = tunnelStatuses.contains { $0.level(greenMax: gm, redMin: rm) == .green }
+        let endpointOrange = tunnelStatuses.contains { $0.level(greenMax: gm, redMin: rm) == .orange }
 
         if endpointGreen  { continue }
         if endpointOrange { hasEndpointOrange = true; continue }

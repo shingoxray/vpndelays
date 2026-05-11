@@ -3,6 +3,19 @@ import SwiftUI
 struct TunnelRowView: View {
     let tunnel: Tunnel
     let status: TunnelStatus?
+    /// 延迟 < 此值 → 绿色
+    let greenMaxLatency: Double
+    /// 延迟 >= 此值 → 红色
+    let redMinLatency: Double
+
+    init(tunnel: Tunnel, status: TunnelStatus?,
+         greenMaxLatency: Double = 50,
+         redMinLatency: Double = 200) {
+        self.tunnel = tunnel
+        self.status = status
+        self.greenMaxLatency = greenMaxLatency
+        self.redMinLatency = redMinLatency
+    }
 
     var body: some View {
         HStack(spacing: 6) {
@@ -51,7 +64,7 @@ struct TunnelRowView: View {
 
     private var statusColor: Color {
         guard let status = status else { return .gray.opacity(0.4) }
-        switch status.level {
+        switch status.level(greenMax: greenMaxLatency, redMin: redMinLatency) {
         case .green:  return .green
         case .orange: return .orange
         case .red:    return .red
@@ -60,8 +73,8 @@ struct TunnelRowView: View {
 
     private var latencyColor: Color {
         guard let s = status, let l = s.latency else { return .secondary }
-        if l < 50 { return .green }
-        if l < 150 { return .orange }
+        if l < greenMaxLatency { return .green }
+        if l < redMinLatency { return .orange }
         return .red
     }
 

@@ -51,7 +51,9 @@ struct EndpointRowView: View {
                 } else {
                     ForEach(endpoint.tunnels) { tunnel in
                         TunnelRowView(tunnel: tunnel,
-                                      status: pingManager.tunnelStatuses[tunnel.id])
+                                      status: pingManager.tunnelStatuses[tunnel.id],
+                                      greenMaxLatency: endpoint.greenMaxLatency,
+                                      redMinLatency: endpoint.redMinLatency)
                     }
                 }
             }
@@ -79,8 +81,10 @@ struct EndpointRowView: View {
         let statuses = tunnels.compactMap { pingManager.tunnelStatuses[$0.id] }
         guard !statuses.isEmpty else { return .gray }
 
-        let hasGreen  = statuses.contains { $0.level == .green }
-        let hasOrange = statuses.contains { $0.level == .orange }
+        let gm = endpoint.greenMaxLatency
+        let rm = endpoint.redMinLatency
+        let hasGreen  = statuses.contains { $0.level(greenMax: gm, redMin: rm) == .green }
+        let hasOrange = statuses.contains { $0.level(greenMax: gm, redMin: rm) == .orange }
         if hasGreen  { return .green }
         if hasOrange { return .orange }
         return .red
